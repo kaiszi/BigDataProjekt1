@@ -2,11 +2,14 @@ use persons;
 
 INSERT overwrite local directory '/home/${hiveconf:user}/out' row format delimited fields terminated by ','
 
-SELECT nb.primaryName AS primaryName, tpc.category AS role, tp.numActor AS movies FROM title_principals tp
-  INNER JOIN name_basics nb
-  ON nb.nconst = tp.nconst
-  INNER JOIN title_principals_category tpc
-  ON tp.nconst = tpc.nconst
-  WHERE tpc.category like 'actor' or tpc.category like 'actress'
-  ORDER BY movies DESC
-  LIMIT 3;
+(SELECT nb.primaryName, 'Actor', numActor FROM title_principals tp
+LEFT JOIN name_basics nb
+ON tp.nconst = nb.nconst
+ORDER BY numActor DESC
+LIMIT 3)
+Union
+(SELECT nb.primaryName, 'Director', numDirector FROM title_principals tp
+LEFT JOIN name_basics nb
+ON tp.nconst = nb.nconst
+ORDER BY numDirector DESC
+LIMIT 3);
