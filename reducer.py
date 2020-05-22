@@ -4,7 +4,7 @@ output = {}
 
 for input_line in sys.stdin:
     input_line = input_line.strip()
-    l = input_line.split(";")
+    l = input_line.split("\t")
     keystring = l[0]
     if keystring not in output.keys():
         if l[1] == "actor" or l[1] == "actress":
