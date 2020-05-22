@@ -4,10 +4,8 @@ INSERT overwrite local directory '/home/${hiveconf:user}/out' row format delimit
 
 (SELECT nconst, numActor, numDirector FROM title_principals
 ORDER BY numActor DESC
-LIMIT 3)subq1
-
+LIMIT 3)
 UNION
-
 (SELECT nconst, numActor, numDirector FROM title_principals
 ORDER BY numDirector DESC
 LIMIT 3)subq2;
