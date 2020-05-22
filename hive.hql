@@ -1,0 +1,10 @@
+create database persons;
+use persons;
+create table name_basics(nconst string, primaryName string,	birthYear string,	deathYear string,	primaryProfession string,	knownForTitles string) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE;
+load data local inpath "/home/${hiveconf:user}/name.basics.tsv" into table name_basics;
+create table title_principals(nconst string, numActor int, numDirector int) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE;
+load data local inpath "/home/${hiveconf:user}/out/out_python/part-00000" into table title_principals;
+load data local inpath "/home/${hiveconf:user}/out/out_python/part-00001" into table title_principals;
+load data local inpath "/home/${hiveconf:user}/out/out_python/part-00002" into table title_principals;
+load data local inpath "/home/${hiveconf:user}/out/out_python/part-00003" into table title_principals;
+load data local inpath "/home/${hiveconf:user}/out/out_python/part-00004" into table title_principals;
