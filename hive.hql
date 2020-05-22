@@ -8,5 +8,3 @@ load data local inpath "/home/${hiveconf:user}/out/out_python/part-00001" into t
 load data local inpath "/home/${hiveconf:user}/out/out_python/part-00002" into table title_principals;
 load data local inpath "/home/${hiveconf:user}/out/out_python/part-00003" into table title_principals;
 load data local inpath "/home/${hiveconf:user}/out/out_python/part-00004" into table title_principals;
-create table title_principals_category(tconst	string, ordering string,	nconst string,	category string,	job	string, characters string) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE;
-load data local inpath "/home/${hiveconf:user}/title.principals.tsv" into table title_principals_category;
