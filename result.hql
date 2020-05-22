@@ -8,4 +8,4 @@ LIMIT 3)
 UNION
 (SELECT nconst, numActor, numDirector FROM title_principals
 ORDER BY numDirector DESC
-LIMIT 3)subq2;
+LIMIT 3);
