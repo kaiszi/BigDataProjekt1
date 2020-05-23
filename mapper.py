@@ -24,6 +24,5 @@ for input_line in sys.stdin:
     else:
         first = 0
 
-# Combined output for one node
 for key in output:
     print("%s\t%s" % (key, output[key]))
